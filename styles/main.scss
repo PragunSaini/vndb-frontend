@@ -1,0 +1,28 @@
+@import './breakpoints.scss';
+@import './variables.scss';
+
+// Flexbox
+@mixin flexbox($justify-content: flex-start, $align-items: flex-start, $flex-direction: row, $flex-wrap: wrap) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-wrap: $flex-wrap;
+}
+
+html,
+body {
+  background: $gwhite;
+  margin: 0;
+  font-size: 16px;
+}
+
+.container-fluid {
+  width: 100%;
+  height: 100%;
+
+  .row {
+    @include flexbox();
+    height: 100%;
+  }
+}
