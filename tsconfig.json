@@ -20,5 +20,5 @@
     "target": "esnext"
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "pages/index.js", "utils/bbcode.js"]
+  "include": ["**/*.ts", "**/*.tsx", "pages/index.js", "utils/bbcode.ts"]
 }
