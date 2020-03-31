@@ -1,0 +1,30 @@
+@import './vn-info';
+
+.vn {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  @include flexbox();
+
+  .vn-nav {
+    position: fixed;
+    width: 20%;
+    @include flexbox(flex-start, flex-start, column);
+
+    div {
+      &:nth-child(1) {
+        margin-top: 20px;
+      }
+
+      margin: 5px 0 5px 10%;
+      font-size: 1.2rem;
+    }
+  }
+
+  .vn-data {
+    position: relative;
+    left: 20%;
+    width: 80%;
+  }
+}

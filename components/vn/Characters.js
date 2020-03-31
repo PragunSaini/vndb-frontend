@@ -2,7 +2,7 @@ import { parse } from '../../utils/bbcode'
 
 const Characters = ({ chars }) => {
   const charDesc = (char) => {
-    const data = char.rows[0]
+    const data = char
     // const imgId = data.image.slice(1, -1).split(',')[1]
     return (
       <div key={char.id} style={{ filter: data.spoil > 0 ? 'blur(50px)' : '', display: 'flex', flexDirection: 'row' }}>

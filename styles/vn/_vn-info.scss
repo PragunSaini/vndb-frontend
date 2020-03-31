@@ -1,0 +1,22 @@
+.vn-info {
+  @include flexbox(flex-start, flex-start, row, nowrap);
+
+  .desc {
+    width: 60%;
+    padding-right: 20px;
+
+    h1 {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+
+    p {
+      font-size: 1.15rem;
+      line-height: 1.5rem;
+    }
+  }
+
+  .info {
+    width: 40%;
+  }
+}
