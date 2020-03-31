@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Navbar from '../../components/vn/Navbar'
 import Info from '../../components/vn/Info'
 import data from '../../mockdata.json'
-// import Relations from '../../components/vn/Relations'
+import Relations from '../../components/vn/Relations'
 // import Anime from '../../components/vn/Anime'
 // import Staff from '../../components/vn/Staff'
 // import Characters from '../../components/vn/Characters'
@@ -20,11 +20,8 @@ const Index = () => {
       <Navbar />
       <article className="vn-data">
         <Info vn={data.vn} developers={data.developers} publishers={data.publishers} />
-        {/* <hr /> */}
-        {/* <DevsPublishers  />
-        <hr />
         <Relations relations={data.relations} />
-        <hr />
+        {/*<hr />
         <Anime anime={data.anime} />
         <hr />
         <Staff staff={data.staff} />

@@ -1,6 +1,6 @@
 .vn-info {
   @include flexbox(flex-start, flex-start, row, nowrap);
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 
   .desc {
     width: 60%;
@@ -36,10 +36,6 @@
         font-weight: 600;
         text-decoration: underline;
         margin-top: 20px;
-      }
-
-      .flag-icon {
-        margin-right: 10px;
       }
     }
   }

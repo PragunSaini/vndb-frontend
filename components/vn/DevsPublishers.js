@@ -23,7 +23,7 @@ const DevsPublishers = ({ developers, publishers }) => {
       <p className="pubs">Publishers</p>
       {publishers.map((pubs) => (
         <p key={pubs.lang}>
-          <span className={`flag-icon flag-icon-${pubs.lang}`} />
+          <span>{pubs.lang}</span>
           {pubs.rows.map((pub, ind) => {
             if (ind > 0) {
               return (
@@ -38,20 +38,6 @@ const DevsPublishers = ({ developers, publishers }) => {
           })}
         </p>
       ))}
-      {/* <div className="publishers" style={{ display: 'flex', flexDirection: 'row' }}>
-        {publishers.map((lang) => (
-          <div key={lang.lang} style={{ padding: '0 20px' }}>
-            {
-              <>
-                <h3>{lang.lang}</h3>
-                {lang.rows.map((pub) => (
-                  <p key={pub.pid}>{pub.name}</p>
-                ))}
-              </>
-            }
-          </div>
-        ))}
-      </div> */}
     </div>
   )
 }
