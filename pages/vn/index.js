@@ -3,7 +3,6 @@ import Head from 'next/head'
 import Navbar from '../../components/vn/Navbar'
 import Info from '../../components/vn/Info'
 import data from '../../mockdata.json'
-// import DevsPublishers from '../../components/vn/DevsPublishers'
 // import Relations from '../../components/vn/Relations'
 // import Anime from '../../components/vn/Anime'
 // import Staff from '../../components/vn/Staff'
@@ -20,9 +19,9 @@ const Index = () => {
       </Head>
       <Navbar />
       <article className="vn-data">
-        <Info vn={data.vn} />
+        <Info vn={data.vn} developers={data.developers} publishers={data.publishers} />
         {/* <hr /> */}
-        {/* <DevsPublishers developers={data.developers} publishers={data.publishers} />
+        {/* <DevsPublishers  />
         <hr />
         <Relations relations={data.relations} />
         <hr />

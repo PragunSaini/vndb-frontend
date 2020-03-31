@@ -1,14 +1,44 @@
 const DevsPublishers = ({ developers, publishers }) => {
   return (
-    <section className="vn-devs-pubs">
-      <div className="developers">
-        {developers.map((dev) => (
-          <p key={dev.pid} style={{ fontWeight: 800, fontSize: '2rem' }}>
-            {dev.name}
-          </p>
-        ))}
-      </div>
-      <div className="publishers" style={{ display: 'flex', flexDirection: 'row' }}>
+    <div className="vn-devs-pubs">
+      <p className="devs">Developers</p>
+      <p>
+        {developers.map((dev, ind) => {
+          if (ind > 0) {
+            return (
+              <>
+                <span> & </span>
+                <a href="#">{dev.name}</a>
+              </>
+            )
+          } else {
+            return (
+              <a key={dev.pid} href="#">
+                {dev.name}
+              </a>
+            )
+          }
+        })}
+      </p>
+      <p className="pubs">Publishers</p>
+      {publishers.map((pubs) => (
+        <p key={pubs.lang}>
+          <span className={`flag-icon flag-icon-${pubs.lang}`} />
+          {pubs.rows.map((pub, ind) => {
+            if (ind > 0) {
+              return (
+                <>
+                  <span> & </span>
+                  <a href="#">{pub.name}</a>
+                </>
+              )
+            } else {
+              return <a href="#">{pub.name}</a>
+            }
+          })}
+        </p>
+      ))}
+      {/* <div className="publishers" style={{ display: 'flex', flexDirection: 'row' }}>
         {publishers.map((lang) => (
           <div key={lang.lang} style={{ padding: '0 20px' }}>
             {
@@ -21,8 +51,8 @@ const DevsPublishers = ({ developers, publishers }) => {
             }
           </div>
         ))}
-      </div>
-    </section>
+      </div> */}
+    </div>
   )
 }
 

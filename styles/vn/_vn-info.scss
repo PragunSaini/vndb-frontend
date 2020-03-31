@@ -1,5 +1,6 @@
 .vn-info {
   @include flexbox(flex-start, flex-start, row, nowrap);
+  margin-bottom: 30px;
 
   .desc {
     width: 60%;
@@ -14,9 +15,58 @@
       font-size: 1.15rem;
       line-height: 1.5rem;
     }
+
+    .vn-devs-pubs {
+      margin-top: 30px;
+
+      p {
+        margin-bottom: 5px;
+
+        a {
+          text-decoration: none;
+        }
+      }
+
+      .devs {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+
+      .pubs {
+        font-weight: 600;
+        text-decoration: underline;
+        margin-top: 20px;
+      }
+
+      .flag-icon {
+        margin-right: 10px;
+      }
+    }
   }
 
   .info {
     width: 40%;
+
+    .vn-image {
+      width: 100%;
+      padding-left: 30px;
+      margin-bottom: 20px;
+
+      img {
+      }
+    }
+
+    .vn-group {
+      font-size: 1.1rem;
+      width: 100%;
+      @include flexbox(flex-start, center, row, nowrap);
+
+      :nth-child(1) {
+        font-weight: 600;
+        margin-right: 5px;
+      }
+
+      margin-bottom: 5px;
+    }
   }
 }
