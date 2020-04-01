@@ -1,14 +1,24 @@
 import { parse } from '../../utils/bbcode'
-import DevsPublishers from './DevsPublishers'
 
-const Info = ({ vn, developers, publishers }) => {
+const Info = ({ vn, rankings }) => {
   const imageId = vn.image.slice(1, -1).split(',')[1]
   return (
     <section className="vn-info">
       <div className="desc">
         <h1>{vn.title}</h1>
-        <p dangerouslySetInnerHTML={{ __html: parse(vn.desc) }} />
-        <DevsPublishers developers={developers} publishers={publishers} />
+        <div className="desc-desc">
+          <p>Description</p>
+          <p dangerouslySetInnerHTML={{ __html: parse(vn.desc) }} />
+        </div>
+        <div className="rankings">
+          <p className="ranking-head">Stats</p>
+          <p>
+            Popularity: {Math.round(vn.c_popularity * 10000) / 100} ranked {rankings.popularityRank}
+          </p>
+          <p>
+            Rating: {Math.round(vn.c_rating * 10) / 100} ranked {rankings.ratingRank}
+          </p>
+        </div>
       </div>
       <div className="info">
         <div className="vn-image">
@@ -27,16 +37,8 @@ const Info = ({ vn, developers, publishers }) => {
           </div>
         )}
         <div className="vn-group">
-          <p>Popularity: </p>
-          <p>{Math.round(vn.c_popularity * 10000) / 100}</p>
-        </div>
-        <div className="vn-group">
-          <p>Rating: </p>
-          <p>{Math.round(vn.c_rating * 10) / 100}</p>
-        </div>
-        <div className="vn-group">
           <p>Length: </p>
-          <p>{vn.length}</p>
+          <p>{vn.lengthDesc}</p>
         </div>
       </div>
     </section>

@@ -1,20 +1,26 @@
+import { Fragment } from 'react'
+
 const Releases = ({ releases }) => {
+  const renderLangReleases = (rows) => {
+    return rows.map((row) => <li key={row.id}>{row.title}</li>)
+  }
+
+  const renderReleases = () => {
+    return releases.map((lang) => (
+      <Fragment key={lang.lang}>
+        <h3 className="release-lang">
+          <abbr className={`icons lang ${lang.lang}`} title={lang.lang} />
+          {lang.lang}
+        </h3>
+        <ul>{renderLangReleases(lang.rows)}</ul>
+      </Fragment>
+    ))
+  }
+
   return (
     <section className="vn-releases">
-      {releases.map((lang) => (
-        <div key={lang.lang}>
-          <h3>{lang.lang}</h3>
-          {lang.rows.map((rel) => (
-            <p key={rel.id}>
-              {new Date(rel.released).getFullYear()} - {rel.minage == 0 ? 'All ages' : rel.minage} -{' '}
-              {rel.platform.map((plat) => plat[0].toUpperCase())} -{' '}
-              <strong>
-                {rel.title} {rel.patch ? '(patch)' : ''}
-              </strong>
-            </p>
-          ))}
-        </div>
-      ))}
+      <h2>Releases</h2>
+      {renderReleases()}
     </section>
   )
 }

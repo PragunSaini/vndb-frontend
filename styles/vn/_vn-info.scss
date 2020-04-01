@@ -3,49 +3,44 @@
   margin-bottom: 50px;
 
   .desc {
+    box-sizing: border-box;
     width: 60%;
-    padding-right: 20px;
 
     h1 {
-      font-size: 2rem;
-      margin: 20px 0;
+      font-size: 2.3rem;
+      margin: 20px 0 40px;
     }
 
-    p {
-      font-size: 1.15rem;
-      line-height: 1.5rem;
+    .desc-desc {
+      margin-bottom: 30px;
+
+      :nth-child(1) {
+        font-weight: 600;
+        text-decoration: underline;
+        margin-bottom: 10px;
+      }
+      :nth-child(2) {
+        width: 95%;
+        font-size: 1.15rem;
+        line-height: 1.5rem;
+      }
     }
 
-    .vn-devs-pubs {
-      margin-top: 30px;
-
-      p {
-        margin-bottom: 5px;
-
-        a {
-          text-decoration: none;
-        }
-      }
-
-      .devs {
+    .rankings {
+      .ranking-head {
         font-weight: 600;
         text-decoration: underline;
-      }
-
-      .pubs {
-        font-weight: 600;
-        text-decoration: underline;
-        margin-top: 20px;
       }
     }
   }
 
   .info {
+    box-sizing: border-box;
     width: 40%;
+    padding-left: 100px;
 
     .vn-image {
       width: 100%;
-      padding-left: 30px;
       margin-bottom: 20px;
 
       img {

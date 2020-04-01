@@ -1,0 +1,333 @@
+.icons {
+  background: url(/icons.png) no-repeat;
+  width: 16px;
+  height: 14px;
+  margin: 0 2px 0 0;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0;
+  border: 0;
+  text-decoration: none;
+}
+
+.icons.lang {
+  width: 13px;
+  height: 11px;
+}
+.icons.feed {
+  width: 12px;
+  height: 12px;
+}
+.icons.gen {
+  width: 14px;
+  height: 14px;
+}
+.icons.gen.b {
+  width: 28px;
+}
+.icons.rtcomplete,
+.icons.rtpartial,
+.icons.rttrial {
+  width: 11px;
+}
+abbr.icons,
+abbr.uicons {
+  cursor: default;
+}
+a .icons {
+  cursor: pointer;
+}
+.icons.oth {
+  background: none;
+}
+.icons.external {
+  background-position: -28px 0;
+}
+.icons.and {
+  background-position: -44px 0;
+}
+.icons.bdp {
+  background-position: -60px 0;
+}
+.icons.dos {
+  background-position: -76px 0;
+}
+.icons.drc {
+  background-position: -92px 0;
+}
+.icons.dvd {
+  background-position: -108px 0;
+}
+.icons.fmt {
+  background-position: -124px 0;
+}
+.icons.gba {
+  background-position: -140px 0;
+}
+.icons.gbc {
+  background-position: 0 -14px;
+}
+.icons.ios {
+  background-position: -16px -14px;
+}
+.icons.lin {
+  background-position: -32px -14px;
+}
+.icons.mac {
+  background-position: -48px -14px;
+}
+.icons.msx {
+  background-position: -64px -14px;
+}
+.icons.n3d {
+  background-position: -80px -14px;
+}
+.icons.nds {
+  background-position: -96px -14px;
+}
+.icons.nes {
+  background-position: -112px -14px;
+}
+.icons.p88 {
+  background-position: -128px -14px;
+}
+.icons.p98 {
+  background-position: -144px -14px;
+}
+.icons.pce {
+  background-position: 0 -28px;
+}
+.icons.ps1 {
+  background-position: -16px -28px;
+}
+.icons.ps2 {
+  background-position: -32px -28px;
+}
+.icons.ps3 {
+  background-position: -48px -28px;
+}
+.icons.ps4 {
+  background-position: -64px -28px;
+}
+.icons.psp {
+  background-position: -80px -28px;
+}
+.icons.psv {
+  background-position: -96px -28px;
+}
+.icons.sat {
+  background-position: -112px -28px;
+}
+.icons.sfc {
+  background-position: -128px -28px;
+}
+.icons.swi {
+  background-position: -144px -28px;
+}
+.icons.web {
+  background-position: 0 -42px;
+}
+.icons.wii {
+  background-position: -16px -42px;
+}
+.icons.win {
+  background-position: -32px -42px;
+}
+.icons.wiu {
+  background-position: -48px -42px;
+}
+.icons.x68 {
+  background-position: -64px -42px;
+}
+.icons.xb1 {
+  background-position: -80px -42px;
+}
+.icons.xb3 {
+  background-position: -96px -42px;
+}
+.icons.xbo {
+  background-position: -112px -42px;
+}
+.icons.pcf {
+  background-position: -156px 0;
+}
+.icons.rtcomplete {
+  background-position: -160px -14px;
+}
+.icons.rtpartial {
+  background-position: -160px -28px;
+}
+.icons.rttrial {
+  background-position: -128px -42px;
+}
+.icons.feed {
+  background-position: -139px -42px;
+}
+.icons.ar {
+  background-position: -151px -42px;
+}
+.icons.bg {
+  background-position: 0 -56px;
+}
+.icons.ca {
+  background-position: -13px -56px;
+}
+.icons.cs {
+  background-position: -26px -56px;
+}
+.icons.da {
+  background-position: -39px -56px;
+}
+.icons.de {
+  background-position: -52px -56px;
+}
+.icons.el {
+  background-position: -65px -56px;
+}
+.icons.en {
+  background-position: -78px -56px;
+}
+.icons.eo {
+  background-position: -91px -56px;
+}
+.icons.es {
+  background-position: -104px -56px;
+}
+.icons.fi {
+  background-position: -117px -56px;
+}
+.icons.fr {
+  background-position: -130px -56px;
+}
+.icons.gd {
+  background-position: -143px -56px;
+}
+.icons.he {
+  background-position: -156px -56px;
+}
+.icons.hr {
+  background-position: 0 -67px;
+}
+.icons.hu {
+  background-position: -13px -67px;
+}
+.icons.id {
+  background-position: -26px -67px;
+}
+.icons.it {
+  background-position: -39px -67px;
+}
+.icons.ja {
+  background-position: -52px -67px;
+}
+.icons.ko {
+  background-position: -65px -67px;
+}
+.icons.lt {
+  background-position: -78px -67px;
+}
+.icons.lv {
+  background-position: -91px -67px;
+}
+.icons.mk {
+  background-position: -104px -67px;
+}
+.icons.ms {
+  background-position: -117px -67px;
+}
+.icons.nl {
+  background-position: -130px -67px;
+}
+.icons.no {
+  background-position: -143px -67px;
+}
+.icons.pl {
+  background-position: -156px -67px;
+}
+.icons.pt-br {
+  background-position: 0 -78px;
+}
+.icons.pt-pt {
+  background-position: -13px -78px;
+}
+.icons.ro {
+  background-position: -26px -78px;
+}
+.icons.ru {
+  background-position: -39px -78px;
+}
+.icons.sk {
+  background-position: -52px -78px;
+}
+.icons.sl {
+  background-position: -65px -78px;
+}
+.icons.sv {
+  background-position: -78px -78px;
+}
+.icons.ta {
+  background-position: -91px -78px;
+}
+.icons.th {
+  background-position: -104px -78px;
+}
+.icons.tr {
+  background-position: -117px -78px;
+}
+.icons.uk {
+  background-position: -130px -78px;
+}
+.icons.vi {
+  background-position: -143px -78px;
+}
+.icons.zh {
+  background-position: -156px -78px;
+}
+.icons.gen.f,
+.icons.gen.b {
+  background-position: 0 0;
+}
+.icons.gen.m {
+  background-position: -14px 0;
+}
+.release_icons_container {
+  width: 16px;
+  height: 16px;
+  float: right;
+  margin-left: 4px;
+}
+.release_icons {
+  width: 16px;
+  height: 16px;
+}
+.release_icon_not_voiced,
+.release_icon_story_not_animated,
+.release_icon_ero_not_animated {
+}
+.release_icon_ero_voiced,
+.release_icon_story_simple_animated,
+.release_icon_ero_simple_animated {
+  filter: hue-rotate(30deg);
+}
+.release_icon_partially_voiced,
+.release_icon_story_some_fully_animated,
+.release_icon_ero_some_fully_animated {
+  filter: invert(100%) hue-rotate(240deg);
+}
+.release_icon_fully_voiced,
+.release_icon_story_all_fully_animated,
+.release_icon_ero_all_fully_animated {
+  filter: hue-rotate(80deg);
+}
+.release_icon_notes,
+.release_icon_unknown,
+.release_icon_freeware,
+.release_icon_nonfree,
+.release_icon_commercial,
+.release_icon_doujin,
+.release_icon_res16-9,
+.release_icon_res4-3,
+.release_icon_disk,
+.release_icon_cartridge,
+.release_icon_download {
+}

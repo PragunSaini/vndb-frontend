@@ -1,3 +1,5 @@
+import { Fragment } from 'react'
+
 const DevsPublishers = ({ developers, publishers }) => {
   return (
     <div className="vn-devs-pubs">
@@ -6,10 +8,10 @@ const DevsPublishers = ({ developers, publishers }) => {
         {developers.map((dev, ind) => {
           if (ind > 0) {
             return (
-              <>
+              <Fragment key={dev.pid}>
                 <span> & </span>
                 <a href="#">{dev.name}</a>
-              </>
+              </Fragment>
             )
           } else {
             return (
@@ -23,17 +25,21 @@ const DevsPublishers = ({ developers, publishers }) => {
       <p className="pubs">Publishers</p>
       {publishers.map((pubs) => (
         <p key={pubs.lang}>
-          <span>{pubs.lang}</span>
+          <abbr className={`icons lang ${pubs.lang}`} title={pubs.lang} />
           {pubs.rows.map((pub, ind) => {
             if (ind > 0) {
               return (
-                <>
+                <Fragment key={pub.pid}>
                   <span> & </span>
                   <a href="#">{pub.name}</a>
-                </>
+                </Fragment>
               )
             } else {
-              return <a href="#">{pub.name}</a>
+              return (
+                <a key={pub.id} href="#">
+                  {pub.name}
+                </a>
+              )
             }
           })}
         </p>
