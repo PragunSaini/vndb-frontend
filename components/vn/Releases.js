@@ -9,8 +9,8 @@ const Releases = ({ releases }) => {
     return releases.map((lang) => (
       <Fragment key={lang.lang}>
         <h3 className="release-lang">
-          <abbr className={`icons lang ${lang.lang}`} title={lang.lang} />
-          {lang.lang}
+          <abbr className={`icons lang ${lang.lang}`} title={lang.language} />
+          {lang.language}
         </h3>
         <ul>{renderLangReleases(lang.rows)}</ul>
       </Fragment>

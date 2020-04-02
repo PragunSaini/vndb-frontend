@@ -1,7 +1,8 @@
 // import { getVN } from '../../utils/fetch'
 import Head from 'next/head'
 import Navbar from '../../components/vn/Navbar'
-import Info from '../../components/vn/Info'
+import Overview from '../../components/vn/Overview'
+import Image from '../../components/Image'
 import data from '../../mockdata.json'
 import Relations from '../../components/vn/Relations'
 import Releases from '../../components/vn/Releases'
@@ -19,9 +20,14 @@ const Index = () => {
       </Head>
       <Navbar />
       <article className="vn-data">
-        <Info vn={data.vn} rankings={data.rankings} />
-        <Relations relations={data.relations} />
-        <Releases releases={data.releases} />
+        <div className="data-left">
+          <Overview vn={data.vn} />
+        </div>
+        <div className="data-right">
+          <Image vn={data.vn} />
+        </div>
+        {/* <Relations relations={data.relations} /> */}
+        {/* <Releases releases={data.releases} /> */}
         {/*<hr />
         <Anime anime={data.anime} />
         <hr />
