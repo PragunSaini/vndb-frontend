@@ -1,0 +1,74 @@
+.vn-stats {
+  margin: 50px;
+  $width: 50%;
+  width: $width;
+  @include flexbox(flex-start, flex-start, column);
+
+  div {
+    margin-bottom: 20px;
+    color: $textgrey;
+    box-sizing: border-box;
+  }
+
+  .rank {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $white;
+    @include flexbox(flex-start, center, row, nowrap);
+
+    svg {
+      color: rgb(250, 250, 74);
+    }
+
+    p {
+      padding-left: 20px;
+      font-weight: 500;
+
+      strong {
+        padding-left: 1px;
+      }
+    }
+  }
+
+  .popularity {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $white;
+    @include flexbox(flex-start, center, row, nowrap);
+
+    svg {
+      color: red;
+    }
+
+    p {
+      padding-left: 20px;
+      font-weight: 500;
+
+      strong {
+        padding-left: 1px;
+      }
+    }
+  }
+
+  .info {
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: $white;
+    @include flexbox(space-between, flex-start, column);
+
+    .stat {
+      .stat-head {
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+
+      .stat-value {
+        color: $textlightgrey;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
