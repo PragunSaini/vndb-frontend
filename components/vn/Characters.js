@@ -30,6 +30,8 @@ const Characters = ({ chars }) => {
     return 1
   }
 
+  // Summary version
+
   const characterSummary = (char) => {
     return (
       <div className="char">
@@ -53,8 +55,6 @@ const Characters = ({ chars }) => {
     )
   }
 
-  // const imgId = data.image.slice(1, -1).split(',')[1]
-
   const summarize = () => {
     const characters = chars.sort(compareChars).filter((char) => {
       if (spoilers || (!spoilers && char.spoil == 0)) {
@@ -74,10 +74,23 @@ const Characters = ({ chars }) => {
     )
   }
 
+  // Description version
+
+  const expand = () => {
+    const characters = chars.sort(compareChars).filter((char) => {
+      if (spoilers || (!spoilers && char.spoil == 0)) {
+        return true
+      }
+      return false
+    })
+    return characters.map((char) => characters(char))
+  }
+
   const renderDescriptions = () => {
     return (
       <>
         <h3>Characters</h3>
+        <div className="characters">{expand()}</div>
       </>
     )
   }
