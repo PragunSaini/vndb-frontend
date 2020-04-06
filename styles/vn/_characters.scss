@@ -1,0 +1,101 @@
+.vn-chars {
+  margin-bottom: 50px;
+  color: $textgrey;
+
+  h2 {
+    font-size: 1.35rem;
+    margin-bottom: 20px;
+  }
+
+  .tabs {
+    box-sizing: border-box;
+    padding: 5px 0 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $textlightgrey;
+    background-color: $white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    @include flexbox(flex-start, center, row, nowrap);
+
+    button {
+      box-sizing: border-box;
+      border: none;
+      background: $white;
+      font-size: 0.95rem;
+      padding: 10px 10px 10px 20px;
+
+      &::-moz-focus-inner {
+        border: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .spoiler-btn {
+      margin-left: auto;
+      padding-right: 20px;
+    }
+  }
+
+  .content {
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .summary {
+      @include flexbox(flex-start, flex-start, row, wrap);
+      width: 100%;
+
+      .char {
+        box-sizing: border-box;
+        width: 32%;
+        margin: 0.5% 0.5%;
+        background-color: $white;
+        border-radius: 5px;
+        padding: 5px;
+
+        .head {
+          border-bottom: 1px solid $textlightgrey;
+          padding-bottom: 5px;
+          @include flexbox(flex-start, flex-start, row, wrap);
+          margin-bottom: 5px;
+
+          svg {
+            color: $textlightgrey;
+          }
+
+          .name {
+            padding-left: 5px;
+            color: $textgrey;
+            text-shadow: 0.2px 0.2px $textlightgrey;
+          }
+
+          .role {
+            margin-left: auto;
+            color: $textlightgrey;
+          }
+        }
+
+        .seiyuu {
+          :nth-child(1) {
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            color: $textlightgrey;
+          }
+
+          .sei-name {
+            font-size: 0.9rem;
+
+            .sei-note {
+              padding-left: 10px;
+              color: $textlightgrey;
+            }
+          }
+        }
+      }
+    }
+  }
+}

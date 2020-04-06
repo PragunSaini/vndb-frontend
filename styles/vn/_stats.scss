@@ -1,6 +1,6 @@
 .vn-stats {
   margin: 50px;
-  $width: 50%;
+  $width: 60%;
   width: $width;
   @include flexbox(flex-start, flex-start, column);
 

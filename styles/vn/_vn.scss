@@ -2,6 +2,7 @@
 @import './relations';
 @import './releases';
 @import './stats';
+@import './characters';
 
 .vn {
   width: 100%;
@@ -43,13 +44,13 @@
     position: relative;
     left: $nav-width + $margin-right;
     width: 100% - $nav-width - $margin-right;
-    $left-width: 65%;
+    $left-width: 70%;
     @include flexbox();
 
     .data-left {
       box-sizing: border-box;
       width: $left-width;
-      padding-left: 10%;
+      padding-left: 5%;
     }
 
     .data-right {
