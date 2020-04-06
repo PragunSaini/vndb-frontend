@@ -97,5 +97,96 @@
         }
       }
     }
+
+    .characters {
+      h4 {
+        font-size: 1.05rem;
+        margin-bottom: 10px;
+      }
+
+      .char {
+        width: 100%;
+        background-color: $white;
+        box-sizing: border-box;
+        padding: 20px 10px;
+        margin-bottom: 10px;
+        @include flexbox(flex-start, flex-start, row, nowrap);
+
+        .char-image {
+          min-width: 256px;
+          margin-right: 10px;
+        }
+
+        .char-info {
+          width: 100%;
+          margin-right: 50px;
+
+          .name {
+            margin-bottom: 10px;
+            border-bottom: 0.5px solid $textlightgrey;
+
+            :nth-child(1) {
+              font-weight: 600;
+              font-size: 1.05rem;
+            }
+
+            :nth-child(2) {
+              font-weight: 400;
+              padding-left: 10px;
+              color: $textlightgrey;
+
+              svg {
+                padding-left: 10px;
+              }
+            }
+          }
+
+          .desc {
+            display: grid;
+            row-gap: 10px;
+            column-gap: 30px;
+            grid-template-columns: [label] auto [value] 1fr;
+
+            .label {
+              grid-column: label;
+              font-weight: 600;
+            }
+
+            .value {
+              grid-column: value;
+
+              span {
+                margin-right: 2px;
+              }
+            }
+
+            .bloodtype {
+              text-transform: uppercase;
+            }
+
+            .seiyuu {
+              span {
+                color: $textlightgrey;
+                padding-left: 10px;
+              }
+            }
+
+            .no-spoil-desc {
+              .spoilers {
+                span {
+                  display: none;
+                }
+                &::after {
+                  content: '[Hidden due to spoilers]';
+                  display: inline;
+                  padding: 0 5px;
+                  color: $textlightgrey;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { parse } from '../../utils/bbcode'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVenus, faMars } from '@fortawesome/free-solid-svg-icons'
 
 const Characters = ({ chars }) => {
-  const [summary, setSummary] = useState(true)
+  const [summary, setSummary] = useState(false)
   const [spoilers, setSpoilers] = useState(false)
 
   const roleMapper = {
@@ -12,6 +12,13 @@ const Characters = ({ chars }) => {
     primary: 'Main character',
     side: 'Side character',
     appears: 'Appears',
+  }
+
+  const roleMapperHead = {
+    main: 'Protagonist',
+    primary: 'Main characters',
+    side: 'Side characters',
+    appears: 'Make an appearance',
   }
 
   const compareChars = (a, b) => {
@@ -34,7 +41,7 @@ const Characters = ({ chars }) => {
 
   const characterSummary = (char) => {
     return (
-      <div className="char">
+      <div key={char.id} className="char">
         <div className="head">
           {char.gender == 'm' ? <FontAwesomeIcon icon={faMars} /> : <FontAwesomeIcon icon={faVenus} />}
           <p className="name">{char.name}</p>
@@ -68,7 +75,6 @@ const Characters = ({ chars }) => {
   const renderSummary = () => {
     return (
       <>
-        <h3>Character Summary</h3>
         <div className="summary">{summarize()}</div>
       </>
     )
@@ -76,20 +82,34 @@ const Characters = ({ chars }) => {
 
   // Description version
 
-  const expand = () => {
-    const characters = chars.sort(compareChars).filter((char) => {
-      if (spoilers || (!spoilers && char.spoil == 0)) {
-        return true
+  const renderRoleChars = (chars) => {
+    return chars.map((char) => <Character key={char.id} char={char} spoilers={spoilers} />)
+  }
+
+  const getCharsOfRole = (role) => {
+    return chars.filter((char) => {
+      if (char.role == role) {
+        if (spoilers || (!spoilers && char.spoil == 0)) {
+          return true
+        }
       }
       return false
     })
-    return characters.map((char) => characters(char))
+  }
+
+  const expand = () => {
+    const roles = ['main', 'primary', 'side', 'appears']
+    return roles.map((role) => (
+      <div key={role} className="role">
+        <h4>{roleMapperHead[role]}</h4>
+        <>{renderRoleChars(getCharsOfRole(role))}</>
+      </div>
+    ))
   }
 
   const renderDescriptions = () => {
     return (
       <>
-        <h3>Characters</h3>
         <div className="characters">{expand()}</div>
       </>
     )
@@ -129,6 +149,68 @@ const Characters = ({ chars }) => {
       </div>
       <div className="content">{summary ? renderSummary() : renderDescriptions()}</div>
     </section>
+  )
+}
+
+const Character = ({ char, spoilers }) => {
+  const imgId = char.image.slice(1, -1).split(',')[1]
+
+  const getSpans = (list) => {
+    return list.map((item, ind) => {
+      if (ind == list.length - 1) {
+        return <span key={item}>{item}</span>
+      } else {
+        return <span key={item}>{item}, </span>
+      }
+    })
+  }
+
+  return (
+    <div key={char.id} className="char">
+      <div className="char-image">
+        <img src={`https://s2.vndb.org/ch/${imgId.slice(-2)}/${imgId}.jpg`} />
+      </div>
+      <div className="char-info">
+        <p className="name">
+          <span> {char.name} </span>
+          <span title={char.gender == 'm' ? 'Male' : 'Female'}>
+            {char.original}{' '}
+            {char.gender == 'm' ? <FontAwesomeIcon icon={faMars} /> : <FontAwesomeIcon icon={faVenus} />}
+          </span>
+        </p>
+        <div className="desc">
+          {char.bloodt != 'unknown' && (
+            <>
+              <p className="label">Blood Group</p>
+              <p className="value bloodtype">{char.bloodt}</p>
+            </>
+          )}
+          {char.alias && (
+            <>
+              <p className="label">Aliases</p>
+              <p className="value">{getSpans(char.alias.split('\n'))}</p>
+            </>
+          )}
+          {char.sei_name.length > 0 && (
+            <>
+              <p className="label">Voiced by</p>
+              {char.sei_name.map((name, ind) => (
+                <>
+                  <p key={char.sei_id[ind]} className="value seiyuu">
+                    {name} <span>{char.note[ind]}</span>
+                  </p>
+                </>
+              ))}
+            </>
+          )}
+          <p className="label description">Description</p>
+          <p
+            className={`value ${!spoilers ? 'no-spoil-desc' : ''}`}
+            dangerouslySetInnerHTML={{ __html: parse(char.desc) }}
+          />
+        </div>
+      </div>
+    </div>
   )
 }
 
