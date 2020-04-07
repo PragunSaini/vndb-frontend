@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, Fragment } from 'react'
 import { parse } from '../../utils/bbcode'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVenus, faMars } from '@fortawesome/free-solid-svg-icons'
@@ -153,7 +153,7 @@ const Characters = ({ chars }) => {
 }
 
 const Character = ({ char, spoilers }) => {
-  const imgId = char.image.slice(1, -1).split(',')[1]
+  // const imgId = char.image.slice(1, -1).split(',')[1]
 
   const getSpans = (list) => {
     return list.map((item, ind) => {
@@ -165,10 +165,31 @@ const Character = ({ char, spoilers }) => {
     })
   }
 
+  const renderTraits = () => {
+    return char.traits.map((trait) => {
+      const traitsNames = trait.trait_name.filter((name, ind) => {
+        if (spoilers || (!spoilers && trait.spoiler[ind] < 1)) {
+          return true
+        }
+        return false
+      })
+
+      if (traitsNames.length > 0) {
+        return (
+          <Fragment key={trait.parent}>
+            <p className="label">{trait.parent_name[0]}</p>
+            <p className="value">{getSpans(traitsNames)}</p>
+          </Fragment>
+        )
+      }
+      return <></>
+    })
+  }
+
   return (
     <div key={char.id} className="char">
       <div className="char-image">
-        <img src={`https://s2.vndb.org/ch/${imgId.slice(-2)}/${imgId}.jpg`} />
+        <img src={`https://s2.vndb.org/ch/${char.image.slice(-2)}/${char.image.slice(2)}.jpg`} />
       </div>
       <div className="char-info">
         <p className="name">
@@ -203,6 +224,7 @@ const Character = ({ char, spoilers }) => {
               ))}
             </>
           )}
+          {renderTraits()}
           <p className="label description">Description</p>
           <p
             className={`value ${!spoilers ? 'no-spoil-desc' : ''}`}
