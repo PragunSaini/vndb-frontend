@@ -182,7 +182,7 @@ const Character = ({ char, spoilers }) => {
           </Fragment>
         )
       }
-      return <></>
+      return null
     })
   }
 
@@ -216,11 +216,11 @@ const Character = ({ char, spoilers }) => {
             <>
               <p className="label">Voiced by</p>
               {char.sei_name.map((name, ind) => (
-                <>
-                  <p key={char.sei_id[ind]} className="value seiyuu">
+                <Fragment key={char.sei_id[ind]}>
+                  <p className="value seiyuu">
                     {name} <span>{char.note[ind]}</span>
                   </p>
-                </>
+                </Fragment>
               ))}
             </>
           )}
