@@ -5,6 +5,11 @@
   h2 {
     font-size: 1.35rem;
     margin-bottom: 20px;
+
+    span {
+      padding-left: 10px;
+      font-size: 0.8rem;
+    }
   }
 
   .language-grp {
@@ -28,27 +33,9 @@
         box-sizing: border-box;
         margin: 5px 0;
         padding: 0 10px;
-        transition: all 0.5 ease;
-
-        &.expand {
-          background-color: $white;
-          border-radius: 5px;
-          padding: 5px 10px;
-          color: black;
-
-          .main-info {
-            padding-bottom: 5px;
-            border-bottom: 0.5px solid $textlightgrey;
-          }
-        }
 
         .main-info {
           @include flexbox(flex-end, flex-start, row, nowrap);
-
-          &:hover {
-            cursor: pointer;
-            color: black;
-          }
 
           .released {
             width: 100px;
@@ -62,9 +49,27 @@
           .rel-name {
             margin-right: auto;
 
+            svg {
+              display: none;
+              color: $textlightgrey;
+              font-size: 0.8rem;
+              padding-left: 10px;
+            }
+
             span {
               color: $textlightgrey;
               padding-left: 2px;
+            }
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: black;
+
+            .rel-name {
+              svg {
+                display: inline;
+              }
             }
           }
         }
@@ -72,14 +77,13 @@
         .more-info {
           display: none;
 
-          &.expand {
-            margin: 10px 0;
-            @include flexbox(flex-start, flex-start, row, wrap);
-          }
-
           .desc {
             @include flexbox(flex-start, flex-start, column, nowrap);
             margin: 10px 20px;
+
+            &.notes {
+              width: 100%;
+            }
 
             .label {
               font-weight: 600;
@@ -87,8 +91,31 @@
             }
 
             .value {
-              color: $textlightgrey;
+              color: $textgrey;
               font-size: 0.9rem;
+            }
+          }
+
+          &.expand {
+            margin: 10px 0;
+            @include flexbox(flex-start, flex-start, row, wrap);
+          }
+        }
+
+        &.expand {
+          background-color: $white;
+          border-radius: 5px;
+          padding: 5px 10px;
+          color: black;
+
+          .main-info {
+            padding-bottom: 5px;
+            border-bottom: 0.5px solid $textlightgrey;
+
+            .rel-name {
+              svg {
+                display: inline;
+              }
             }
           }
         }

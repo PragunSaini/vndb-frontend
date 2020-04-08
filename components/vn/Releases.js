@@ -1,5 +1,7 @@
 import { Fragment, useState } from 'react'
 import { parse } from '../../utils/bbcode'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 const Releases = ({ releases }) => {
   const renderReleaseRows = (rows) => {
@@ -20,14 +22,16 @@ const Releases = ({ releases }) => {
 
   return (
     <section className="vn-releases">
-      <h2>Releases</h2>
+      <h2>
+        Releases <span>(click to expand)</span>
+      </h2>
       {renderReleases()}
     </section>
   )
 }
 
 const ReleaseRow = ({ rel }) => {
-  const [expand, setExpand] = useState(true)
+  const [expand, setExpand] = useState(false)
 
   const toggleExpand = () => {
     setExpand(!expand)
@@ -57,6 +61,10 @@ const ReleaseRow = ({ rel }) => {
     }
   }
 
+  const freewareMap = (freeware) => (freeware ? 'Freeware' : 'Non-free')
+
+  const doujinMap = (doujin) => (doujin ? 'Doujin' : 'Commercial')
+
   const getDetails = () => {
     return (
       <Fragment>
@@ -66,8 +74,43 @@ const ReleaseRow = ({ rel }) => {
             <div className="value">{rel.resolution}</div>
           </div>
         )}
-        {rel.notes && (
+        <div className="desc">
+          <div className="label">Type</div>
+          <div className="value" style={{ textTransform: 'capitalize' }}>
+            {rel.type}
+          </div>
+        </div>
+        <div className="desc">
+          <div className="label">Publication</div>
+          <div className="value">
+            {freewareMap(rel.freeware)}, {doujinMap(rel.doujin)}
+          </div>
+        </div>
+        {rel.voiced && (
           <div className="desc">
+            <div className="label">Voiced</div>
+            <div className="value">{rel.voiced}</div>
+          </div>
+        )}
+        {(rel.ani_story || rel.ani_ero) && (
+          <div className="desc">
+            <div className="label">Animation</div>
+            {rel.ani_story && <div className="value">Story: {rel.ani_story}</div>}
+            {rel.ani_ero && <div className="value">Ero scenes: {rel.ani_ero}</div>}
+          </div>
+        )}
+        {rel.platform.length > 0 && (
+          <div className="desc">
+            <div className="label">Platforms</div>
+            {rel.platform.map((plat) => (
+              <div className="value" key={plat}>
+                {plat}
+              </div>
+            ))}
+          </div>
+        )}
+        {rel.notes && (
+          <div className="desc notes">
             <div className="label">Notes</div>
             <div className="value">
               <p dangerouslySetInnerHTML={{ __html: parse(rel.notes) }} />
@@ -79,10 +122,11 @@ const ReleaseRow = ({ rel }) => {
   }
 
   return (
-    <div key={rel.id} className={`rel-row ${expand ? 'expand' : ''}`} onClick={toggleExpand}>
-      <div className="main-info">
+    <div key={rel.id} className={`rel-row ${expand ? 'expand' : ''}`}>
+      <div className="main-info" onClick={toggleExpand}>
         <span className="rel-name" title={rel.original}>
-          {rel.title} {rel.patch && <span>(patch)</span>}
+          {rel.title} {rel.patch && <span>(patch)</span>}{' '}
+          {!expand ? <FontAwesomeIcon icon={faAngleDown} /> : <FontAwesomeIcon icon={faAngleUp} />}
         </span>
         <span className="age">{getAge(rel.minage)}</span>
         <span className="released">{getDate(rel.released)}</span>
