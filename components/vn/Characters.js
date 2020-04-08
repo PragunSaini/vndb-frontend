@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVenus, faMars } from '@fortawesome/free-solid-svg-icons'
 
 const Characters = ({ chars }) => {
-  const [summary, setSummary] = useState(false)
+  const [summary, setSummary] = useState(true)
   const [spoilers, setSpoilers] = useState(false)
 
   const roleMapper = {

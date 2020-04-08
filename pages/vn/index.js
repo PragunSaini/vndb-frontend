@@ -6,12 +6,12 @@ import Image from '../../components/vn/Image'
 import Stats from '../../components/vn/Stats'
 import Relations from '../../components/vn/Relations'
 import Characters from '../../components/vn/Characters'
+import Releases from '../../components/vn/Releases'
 
 import data from '../../mockdata.json'
 
 // import Anime from '../../components/vn/Anime'
 // import Staff from '../../components/vn/Staff'
-// import Characters from '../../components/vn/Characters'
 // import Tags from '../../components/vn/Tags'
 // import Screenshots from '../../components/vn/Screenshots'
 
@@ -27,12 +27,12 @@ const Index = () => {
           <Overview vn={data.vn} />
           <Relations relations={data.relations} />
           <Characters chars={data.chars} />
+          <Releases releases={data.releases} />
         </div>
         <div className="data-right">
           <Image vn={data.vn} />
           <Stats vn={data.vn} rankings={data.ratings} />
         </div>
-        {/* <Releases releases={data.releases} /> */}
         {/*<hr />
         <Anime anime={data.anime} />
         <hr />
